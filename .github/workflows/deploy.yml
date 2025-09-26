@@ -23,10 +23,6 @@ jobs:
           path: |
             index.html
             app.js
-            assets/
-            images/
-            css/
-            js/
 
       - name: Deploy to GitHub Pages
         id: deployment
