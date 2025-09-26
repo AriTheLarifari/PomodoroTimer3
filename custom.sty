@@ -1,0 +1,170 @@
+\NeedsTeXFormat{LaTeX2e}[]
+\ProvidesPackage{custom}[2021/04/19 Custom Package]
+
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[a4paper,left=1.2cm,right=2cm,top=2cm,bottom=4cm,bindingoffset=5mm,]{geometry}
+\RequirePackage{natbib}
+\RequirePackage{graphicx}
+\RequirePackage{amsmath,amsthm,amssymb,amsfonts,amscd,amsbsy,amsxtra}
+\RequirePackage[ngerman]{babel}
+\RequirePackage{polynom}
+\RequirePackage{pgfplots}
+\pgfplotsset{width=10cm,compat=1.9}
+\RequirePackage{verbatim}
+\RequirePackage{ dsfont }
+\RequirePackage{fancyhdr}
+\RequirePackage{tikz}
+\RequirePackage{ wasysym }
+\RequirePackage{ marvosym }
+\RequirePackage{tcolorbox}
+\RequirePackage{hyperref}
+\RequirePackage{siunitx}
+\RequirePackage{mathtools}
+\DeclareSIUnit\angstrom{\text {Å}}
+\RequirePackage{ifthen}
+\tcbuselibrary{theorems, breakable}
+\tcbuselibrary{skins}
+
+\hypersetup{colorlinks=true, linkcolor=black!50!white!60!blue}
+
+\setlength{\parindent}{0em} 
+\pagestyle{empty}
+
+\DeclareMathOperator{\magn}{\text{magn}}
+\DeclareMathOperator{\Res}{\text{Res}}
+\DeclareMathOperator{\elektr}{\text{elektr}}
+\DeclareMathOperator{\Lin}{\textrm{Lin}}
+\DeclareMathOperator{\sgn}{\mathrm{sgn}}
+\DeclareMathOperator{\id}{\mathrm{id}}
+\DeclareMathOperator{\Ce}{\mathbb C \cup \{\infty\}}
+\DeclareMathOperator{\CC}{\mathbb C}
+\DeclareMathOperator{\ve}{\varepsilon}
+\DeclareMathOperator{\vp}{\varphi}
+\DeclareMathOperator{\pp}{\partial}
+\DeclareMathOperator{\TT}{\mathcal{T}}
+\DeclareMathOperator{\LL}{\mathcal{L}}
+\DeclareMathOperator{\MM}{\mathcal{M}}
+\DeclareMathOperator{\OO}{\mathcal{O}}
+\DeclareMathOperator{\Aa}{\mathcal{A}}
+\DeclareMathOperator{\FF}{\mathcal{F}}
+\DeclareMathOperator{\BB}{\mathcal{B}}
+\DeclareMathOperator{\PP}{\mathcal{P}}
+\DeclareMathOperator{\Sss}{\mathcal{S}}
+\DeclareMathOperator{\Nn}{\mathcal{N}}
+\DeclareMathOperator{\NN}{\mathbb N}
+\DeclareMathOperator{\QQ}{\mathbb Q}
+\DeclareMathOperator{\KK}{\mathbb K}
+\DeclareMathOperator{\ZZ}{\mathbb Z}
+\DeclareMathOperator{\Gl}{\mathrm{Gl}}
+\DeclareMathOperator{\Ann}{\mathrm{Ann}}
+\DeclareMathOperator{\diag}{\mathrm{diag}}
+\DeclareMathOperator{\diam}{\mathrm{diam}}
+\DeclareMathOperator{\dist}{\mathrm{dist}}
+\DeclareMathOperator{\spann}{\mathrm{span}}
+\DeclareMathOperator{\conv}{\mathrm{conv}}
+\DeclareMathOperator{\aff}{\mathrm{aff}}
+\DeclareMathOperator{\cone}{\mathrm{cone}}
+\DeclareMathOperator{\loc}{\mathrm{loc}}
+\DeclareMathOperator{\st}{\mathrm{s.t.}}
+\DeclareMathOperator{\eq}{\mathrm{eq}}
+\DeclareMathOperator{\grad}{\mathrm{grad}}
+\DeclareMathOperator{\esssup}{\mathrm{ess\;sup}}
+\DeclareMathOperator{\Hom}{\mathrm{Hom}}
+\DeclareMathOperator{\ran}{\mathrm{ran}}
+\DeclareMathOperator{\Aut}{\mathrm{Aut}}
+\DeclareMathOperator{\Rea}{\textrm{Re}}
+\DeclareMathOperator{\Ima}{\textrm{Im}}
+\DeclareMathOperator{\End}{\textrm{End}}
+\DeclareMathOperator{\D}{\mathrm{d}}
+\newcommand{\rg}{\textrm{rg}}
+\newcommand{\ret}{\textrm{ret}}
+\newcommand{\Sl}{\mathrm{Sl}}
+\newcommand{\p}[2]{\langle #1,#2\rangle}
+\newcommand{\te}[1]{\text{ #1}}
+\newcommand{\ms}[1]{\mathclap{\substack{#1}}}
+\newcommand{\im}{\textrm{im}}
+\newcommand{\Abb}{\textrm{Abb}}
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\RR}{\mathbb R}
+\newcommand{\I}{\mathrm{i}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\khar}{\textrm{char}}
+\renewcommand{\H}{\mathcal{H}}
+\newcommand{\einschraenkung}{\,\rule[-5pt]{0.4pt}{12pt}\,{}}
+\newcommand*\dd{\mathop{}\!\mathrm{d}}
+\newcommand*\rr{\mathop{}\Vec{r}\,}
+\newcommand*\ee{\mathop{}\Vec{e}\,}
+\newcommand*\EE{\mathop{}\Vec{E}\,}
+\newcommand*\B{\mathop{}\Vec{B}\,}
+\newcommand*\F{\mathop{}\Vec{F}\,}
+\newcommand*\II{\mathop{}\Vec{I}\,}
+\newcommand*\nn{\mathop{}\Vec{\nabla}}
+\newcommand*\vv[1]{\mathop{}\begin{pmatrix}#1\end{pmatrix}}
+
+
+\newcommand{\Titel}[4]{
+\thispagestyle{empty}
+{\itshape\Large #3\hfill Arianna Rast\par}
+    \begin{center}
+    \vspace{1.5cm}
+	{\scshape\Large Zusammenfassung der Vorlesung\par}
+	\vspace{1cm}
+	{\huge\bfseries #1\par}
+	\vspace{1cm}
+	{\Large\itshape gehalten von #2\par}
+	{\Large\itshape #4\par}
+	{\Large\itshape Version vom \today \par}
+	\vspace{2cm}
+	\end{center}
+	\tableofcontents
+    \newpage
+    }
+    
+\newcounter{my}[section]
+\def\themytheorem{\thesection.\arabic{my}}
+
+\tcbset{
+thmstyle/.style={enhanced, breakable, attach boxed title to top left={yshift=-0.9mm,xshift=2.5mm}, boxrule=0.15mm, boxed title style={boxrule=0.15mm},},
+bewstyle/.style={skin=enhancedmiddle jigsaw, parbox=false,boxrule=0mm,leftrule=1mm,rightrule=0mm, coltitle=black, breakable},
+}
+
+ \newtcbtheorem[auto counter, number within= section]{Def}{Definition}{thmstyle,colback=red!5,colframe=red!55!black!98!white,colbacktitle=red!75!black!30!pink}{Def}
+\newtcbtheorem[use counter from= Def]{Satz}{Satz}{thmstyle,colback=blue!90!black!80!cyan!10!white, colframe=blue!80!black!99!cyan,colbacktitle=blue!85!black!80!cyan!60!white,}{Satz}
+\newtcbtheorem[use counter from= Def]{Lemma}{Lemma}{thmstyle,colback=blue!90!black!80!cyan!10!white, colframe=blue!80!black!99!cyan,colbacktitle=blue!85!black!80!cyan!60!white,}{Lemma}
+ \newtcbtheorem[use counter from= Def]{Prop}{Proposition}{thmstyle,colback=blue!90!black!80!cyan!10!white, colframe=blue!80!black!99!cyan,colbacktitle=blue!85!black!80!cyan!60!white,}{Prop}
+ \newtcbtheorem[use counter from= Def]{Kor}{Korollar}{thmstyle,colback=blue!10!white, colframe=blue!30!black,colbacktitle=blue!40!white}{Kor}
+\newtcolorbox[use counter from= Def]{Beispiel}{bewstyle,colback=green!10!white!97!olive, colframe=green!65!olive,colbacktitle=green!10!white!97!olive, title=\textbf{Beispiel.}}
+\newtcolorbox[use counter from= Def]{Bemerkung}{empty, coltitle=black, breakable, title=\textbf{Bemerkung.}}
+
+
+\newtcolorbox{Beweis}{bewstyle,colback=yellow!10!white, colframe=yellow!55!orange,colbacktitle=yellow!10!white, title=\textbf{Beweis.}}
+\newtcolorbox{Formel}{bewstyle,colback=blue!90!black!80!cyan!10!white, colframe=blue!30!black,colbacktitle=blue!90!black!80!cyan!10!white,}
+
+% \tcbmaketheorem{Def}{Definition}{thmstyle, colback=red!5,colframe=red!55!black!98!white,colbacktitle=red!75!black!30!pink}{my}{def}
+
+% \tcbmaketheorem{Satz}{Satz}{thmstyle,colback=blue!90!black!80!cyan!10!white, colframe=blue!80!black!99!cyan,colbacktitle=blue!85!black!80!cyan!60!white,}{my}{thm}
+
+% \tcbmaketheorem{Lemma}{Lemma}{thmstyle,colback=blue!90!black!80!cyan!10!white, colframe=blue!80!black!99!cyan,colbacktitle=blue!85!black!80!cyan!60!white,}{my}{lemma}
+
+% \tcbmaketheorem{Prop}{Proposition}{thmstyle,colback=blue!90!black!80!cyan!10!white, colframe=blue!80!black!99!cyan,colbacktitle=blue!85!black!80!cyan!60!white,}{my}{prop}
+
+% \tcbmaketheorem{Kor}{Korollar}{thmstyle,colback=blue!10!white, colframe=blue!30!black,colbacktitle=blue!40!white}{my}{kor}
+
+% \tcbmaketheorem{Beispiel}{Beispiel}{bewstyle,colback=green!10!white!97!olive, colframe=green!65!olive,colbacktitle=green!10!white!97!olive, title=\textbf{Beispiel.}}{my}{bsp}
+
+%%%%% weirder shit %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usetikzlibrary{tikzmark,calc}
+%\newcommand*{\verticalline}[2]{
+ % \begin{tikzpicture}[remember picture, overlay]
+    %\draw [densely dashed] ($(pic cs:#1) + (1ex,1.8ex)$)
+     % -- ($(pic cs:#2) + (1ex,-0.3ex)$);
+  %\end{tikzpicture}}
+
+\fancypagestyle{ErsteSeite}{%
+	\fancyhf{}%
+	\setlength\headheight{35pt}
+    \fancyhead[R]{\leftmark} %Kopfzeile rechts
+    \fancyfoot[C]{\thepage}
+    }
+    
+    \pagestyle{ErsteSeite}
