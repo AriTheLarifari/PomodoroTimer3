@@ -3,7 +3,7 @@ name: Deploy Pomodoro Timer to GitHub Pages
 on:
   push:
     branches:
-      - main   # ändere zu "master", falls dein Standard-Branch so heißt
+      - main   
 
 permissions:
   contents: read
@@ -22,13 +22,11 @@ jobs:
         with:
           path: |
             index.html
-            *.css
-            *.js
+            app.js
             assets/
             images/
             css/
             js/
-            # füge weitere Ordner ein, falls du mehr hast
 
       - name: Deploy to GitHub Pages
         id: deployment
